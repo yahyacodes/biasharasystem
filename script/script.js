@@ -7,7 +7,6 @@ const feedback = document.querySelector("#feedback");
 const btnLogin = document.querySelector(".btn-login");
 const signup = document.querySelector("#signup");
 const forgotPassword = document.querySelector("#forgot-password");
-const login = document.querySelector("#login");
 //sign Up Form
 const signupForm = document.querySelector("#signup-form");
 const firstName = document.querySelector("#firstname");
@@ -34,8 +33,9 @@ const dropdownList = document.querySelector('#patient-list')
 const serviceDropdown = document.querySelector('#services-dropdown')
 const serviceList = document.querySelector('#service-list')
 let section = document.querySelector('#section')
-const navbarHeight = document.querySelector('#navbar')
-const footerHeight = document.querySelector('#footer')
+const navbarHeight = document.querySelector('#navbar').style.height
+const footerHeight = document.querySelector('#footer').style.height
+const list = document.querySelector('#list')
 
 //Overview page
 const overView = document.querySelector('#overview')
@@ -92,7 +92,22 @@ checkinModal.style.display = 'none'
 }
 }
 
-modal2.style.display = 'block'
+function getDimensions() {
+    const sectionHeight = window.innerHeight - (footerHeight + navbarHeight) - 160
+    const listHeight = window.innerHeight - (footerHeight + navbarHeight) - 160
+    section.style.height = sectionHeight + 'px'
+    list.style.height = listHeight + 'px'
+  }
+
+  window.addEventListener('resize', getDimensions)
+
+  getDimensions()
+
+  patientDropdown.onclick = function () {
+    dropdownList.style.display = 'block'
+    }
+
+  modal2.style.display = 'block'
 
 close.onclick = function () {
 modal2.style.display = 'none'
