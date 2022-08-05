@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href=	"https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script defer src="/script/script.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-secondary bg-opacity-10">
+   <nav class="navbar navbar-expand-lg bg-white" id="navbar">
+    <a href="checkin.html" class="navbar-brand fw-normal text-primary ms-5">BiasharaSystem</a>
+
+    <button class="btn btn-light navbar-toggler mx-5" data-bs-toggle="navbar" data-bs-target="navmenu">
+        <i class="bi bi-list text-primary"></i>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navmenu">
+    <div class="dropdown" id="patients-dropdown">
+        <button class="btn btn-light dropdown-toggle border-end">
+            <i class="bi bi-people-fill"></i>
+            Patients
+        </button>
+
+        <ul class="dropdown-menu" id="patient-list">
+            <li class="dropdown-item">
+                <i class="bi bi-people-fill"></i>
+                All Patients
+            </li>
+
+            <li class="dropdown-item">
+                <i class="bi bi-people-fill"></i>
+                Patients Groups
+            </li>
+
+            <li class="dropdown-item">
+                <i class="bi bi-plus"></i>
+                New Patient
+            </li>
+        </ul>
+    </div>
+
+    <button class="btn btn-light border-end">
+        <i class="bi bi-calendar3"></i>
+        Appointments
+    </button>
+
+    <button class="btn btn-light border-end" onclick="location.href='checkin.html'">
+        <i class="bi bi-person-fill"></i>
+        Check INs
+    </button>
+
+    <div class="dropdown" id="services-dropdown">
+        <button class="btn btn-light dropdown-toggle border-end">
+            <i class="bi bi-box-seam-fill"></i>
+            Services
+        </button>
+
+        <ul class="dropdown-menu" id="service-list">
+            <li class="dropdown-item">
+                <i class="bi bi-plus-lg"></i>
+                New Service
+            </li>
+
+            <li class="dropdown-item">
+                <i class="bi bi-circle"></i>
+                 All Services
+            </li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navmenu">
+        <i class="bi bi-search border-end mx-2"></i>
+
+        <i class="bi bi-bell-fill border-end mx-2"></i>
+
+        <button class="btn btn-primary">
+            <i class="bi bi-plus-lg"></i>
+            New Transaction
+        </button>
+         
+        <button class="btn btn-primary mx-3" id="number-input">
+            <i class="bi bi-person-fill"></i>
+            Check In
+        </button> 
+
+
+    </div>
+   </nav>
+
+   <section id="overview-section">
+    <div class="row">
+        <div class="col-2 col-sm-12 col-md-3">
+    <div class="sidebar bg-primary rounded mt-3 ms-1 " id="list" style="height: 810px; cursor: pointer;">
+        <div class="text-center">
+    <p class="fs-5 fw-normal text-light" id="name-view">Ali Mohammed Jama</p>
+    <input type="time" name="time" id="time">
+        </div>
+    <hr class="clear-fix w-100 text-light">
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="overview">
+        <i class="bi bi-exclamation-circle-fill"></i>
+         Overview
+    </p>
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="notes">
+        <i class="bi bi-chat-fill"></i>
+         Notes & Comments
+    </p>
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="transaction">
+        <i class="bi bi-cash"></i>
+         Transaction Details & Balances
+    </p>
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="procedures">
+        <i class="bi bi-phone-fill"></i>
+         Services / Procedure
+    </p>
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="appointments">
+        <i class="bi bi-calendar3"></i>
+         Appointments
+    </p>
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="prescriptions">
+        <i class="bi bi-box-seam-fill"></i>
+         Prescriptions
+    </p>
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="lab-tests">
+        <i class="bi bi-stickies-fill"></i>
+         Lab Tests & Results
+    </p>
+
+    <p class="fs-6 fw-bold ms-3 text-light border-bottom mb-2 mt-3" id="history">
+        <i class="bi bi-clock-history"></i>
+         Check-in History
+    </p>
+
+    </div>
+        </div>
+        <div class="col-10 col-sm-12 col-md-9 bg-white rounded mt-3" id="section">
+            <div class="row">
+                <div class="col">
+                    <p class="fw-bold ms-2 mt-2">
+                        Check IN
+                    </p>
+                </div>
+                <div class="col d-flex flex-row-reverse">
+                    <button class="mt-2 mx-2 btn btn-outline-primary">
+                        <i class="bi bi-check"></i>
+                        Mark As Complete
+                    </button>
+                </div>
+            </div>
+    
+        <hr class="clear-fix w-100">
+    
+        <div class="row">
+            <div class="col" >
+                <p class="ms-2 fw-bold">
+                    <i class="bi bi-person-fill"></i>
+                    Patient
+                </p>
+            </div>
+
+            <div class="col d-flex flex-row-reverse mx-2">
+                <button class="btn btn-outline-primary fw-bold">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    Update Patient Info
+                </button>
+            </div>
+        </div>
+    
+        <hr class="clear-fix w-100">
+    
+        <table class="table table-striped mb-5">
+            <thead>
+                <tr>
+                <th scope="col" class="border-top bg-secondary bg-opacity-10">Name</th>
+                <th scope="col" class="border-top bg-secondary bg-opacity-10">Gender</th>
+                <th scope="col" class="border-top bg-secondary bg-opacity-10">Phone Number</th>
+                <th scope="col" class="border-top bg-secondary bg-opacity-10">Email</th>
+                <th scope="col" class="border-top bg-secondary bg-opacity-10">Address</th>
+                </tr>
+    
+                <tr>
+                    <td class="text-primary" style="cursor: pointer;">Mohammed Ali Jama</td>
+                    <td>Male</td>
+                    <td>254712345678</td>
+                    <td>mohamedAliJama@kasoko.com</td>
+                    <td>Eastleigh</td>
+                </tr>
+            </thead>
+            <tbody id="patient-info"></tbody>
+        </table>
+        
+        <hr class="clear-fix w-100">
+
+
+        <div class="row">
+            <div class="col">
+
+                <p class="fw-bold ms-2">Group</p>
+            </div>
+            <div class="col d-flex flex-row-reverse mx-2">
+
+                <button class="btn btn-outline-primary mx-2 fw-bold">
+                    <i class="bi bi-plus"></i>
+                    Add To Group
+                </button>
+            </div>
+        </div>
+        </div>
+            </div>
+   </section>
+
+    <div class="modal" id="check-number" style="background: rgba(0, 0, 0, 0.35);">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Check In</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="fw-bold">Phone Number</p>
+              <input type="search" id="search" class="form-control" placeholder="254712345678">
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-outline-primary" id="close">
+                <i class="bi bi-x-lg"></i>
+                Cancel
+              </button>
+    
+              <button class="btn btn-primary" id="check-in" onclick="location.href='registration.html'">
+                <i class="bi bi-person-fill"></i>
+                Check In
+            </button> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+   <footer class="page-footer bg-white font-small fixed-bottom" id="footer">
+    <div class="container">
+    <div class="row">
+        <div class="col">
+        <p class="fw-bold mt-3">2022&copy;BiasharaSystem</p>
+        </div>
+
+        <div class="col d-flex flex-row-reverse">
+            <p class="fw-bold mt-3">Contact Us</p>
+        </div>
+    </div>
+    </div>
+   </footer>
+  </body>
+</html>
