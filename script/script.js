@@ -73,6 +73,7 @@ let amount = document.querySelector('#amount');
 const discount = document.querySelector('#discount');
 const piadinitial = document.querySelector('#paid-initial');
 const balance = document.querySelector('#balance');
+const submit = document.querySelector('#submit')
 
 searchNumber.onclick = function () {
 checkinModal.style.display = 'block'
@@ -85,6 +86,10 @@ checkinModal.style.display = 'none'
 cancelModal.onclick = function () {
 checkinModal.style.display = 'none'
 }
+
+// checkIn.onclick = function () {
+//   modal2.style.display = 'block'
+//   }
 
 window.onclick = function (event) {
 if(event.target === checkinModal) {
@@ -107,18 +112,89 @@ function getDimensions() {
     dropdownList.style.display = 'block'
     }
 
-  modal2.style.display = 'block'
+// close.onclick = function () {
+// modal2.style.display = 'none'
+// }
 
-close.onclick = function () {
-modal2.style.display = 'none'
+// cancelRgistrationModal.onclick = function () {
+// modal2.style.display = 'none'
+// }
+
+// window.onclick = function (event) {
+// if(event.target === modal2) {
+// modal2.style.display = 'none'
+// }
+// }
+
+//Displaying names on check-in page
+class Names {
+  constructor(name, phone, location) {
+    this.name = name
+    this.phone = phone 
+    this.location = location
+  }
 }
 
-cancelRgistrationModal.onclick = function () {
-modal2.style.display = 'none'
+class UI {
+  static displayNames() {
+    const name = Store.getNames()
+
+    name.forEach(names => UI.addNamesToList(names))
+  }
+  static addNamesToList(names) {
+    const list = document.querySelector('#patient-info')
+
+    const row = document.createElement('tr')
+
+    row.innerHTML = `
+    <td>${names.name}</td>
+    <td>${names.phone}</td>
+    <td>${names.location}</td>
+    `
+
+    list.appendChild(row)
+  }
 }
 
-window.onclick = function (event) {
-if(event.target === modal2) {
-modal2.style.display = 'none'
+class Store {
+  static getNames() {
+    let names;
+    if(localStorage.getItem(names) === null) {
+      names = [];
+    } else {
+      names = JSON.parse(localStorage.getItem('names'))
+    }
+    return names
+  }
+  
+  static addNames(name) {
+    const names = Store.getNames()
+
+    names.push(name)
+
+    localStorage.setItem('names', JSON.stringify(names))
+  }
 }
+
+document.addEventListener('DOMContentLoaded', UI.displayNames)
+
+ function getName(e) {
+  e.preventDefault()
+
+  //Get values from
+  const name = document.querySelector('#name-input')
+  const phoneNumber = document.querySelector('#reg-number')
+  const location = document.querySelector('#select-location')
+
+  if(name === '' || phoneNumber === '' || location === '') {
+    alert('Please fill all the inputs')
+  } else {
+    const name = new Names(name, phoneNumber, location)
+
+    UI.addNamesToList(name)
+
+    Store.getNames(name)
+  }
+
+  UI.addNamesToList(name)
 }
